@@ -6,7 +6,7 @@ updates:
   # management, the dependencies are not defined in the given projects, and thus Dependabot can't update them when
   # restricted to a directory (it won't know about Directory.packages.props). So, just processing Directory.packages.props.
   - package-ecosystem: "nuget"
-    directory: "/Directory.Packages.props"
+    directory: "/src/OrchardCore/OrchardCore"
     schedule:
       interval: "weekly"
     groups:
