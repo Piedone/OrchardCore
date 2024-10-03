@@ -89,9 +89,9 @@
     <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <GlobalPackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.11.0" />
   </ItemGroup>
-  <!-- These versions are used for tansitive dependency forced upgrades only. For instance when a package reference a vulnerable version. -->
-  <!-- To list all vulnerable direct references run 'dotnet list package -vulnerable' -->
-  <!-- To list all vulnerable transitive references run 'dotnet list package -vulnerable -include-transitive' -->
+  <!-- These versions are used for tansitive dependency forced upgrades only. E.g. when a package references a vulnerable version. -->
+  <!-- To list all vulnerable direct references run 'dotnet list package -vulnerable' (use double dash, just XML comments can't contain it) -->
+  <!-- To list all vulnerable transitive references run 'dotnet list package -vulnerable -include-transitive' (use double dash, just XML comments can't contain it) -->
   <!-- The dependency graphs are generated using 'dotnet nuget why <.sln> <package id>' -->
   <ItemGroup>
     <!--
@@ -110,6 +110,7 @@
                └─ System.Windows.Extensions (v4.7.0)
                   └─ System.Drawing.Common (v4.7.0)
     -->
+    <!-- When removing this, remove the corresponding ignore in dependabot.yml too. -->
     <PackageVersion Include="System.Drawing.Common" Version="4.7.2" />
     <!--
       Microsoft.AspNetCore.DataProtection.StackExchangeRedis (v8.0.8)

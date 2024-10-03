@@ -16,4 +16,5 @@ updates:
     ignore:
       # We'll update GraphQL for v3 because it's breaking, see https://github.com/OrchardCMS/OrchardCore/pull/16736.
       - dependency-name: "GraphQL*"
-
+      # See the corresponding comment in Directory.Packages.props.
+      - dependency-name: "System.Drawing.Common"
