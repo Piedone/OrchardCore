@@ -2,50 +2,11 @@ version: 2
 updates:
   # Dependabot can handle at most 150 "manifests", so for NuGet, csprojs referencing packages (see docs:
   # https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph#are-there-limits-which-affect-the-dependency-graph-data).
-  # We're grouping updates per directories to have smaller batches.
-  # /src/OrchardCore
+  # Grouping updates per directories to have smaller batches wouldn't work, because due to centralized package
+  # management, the dependencies are not defined in the given projects, and thus Dependabot can't update them when
+  # restricted to a directory (it won't know about Directory.packages.props). So, just processing Directory.packages.props.
   - package-ecosystem: "nuget"
-    directory: "/src/OrchardCore"
-    schedule:
-      interval: "weekly"
-    groups:
-       all-dependencies:
-          patterns:
-            - "*"
-  # /src/OrchardCore.Modules
-  - package-ecosystem: "nuget"
-    directory: "/src/OrchardCore.Modules"
-    schedule:
-      interval: "weekly"
-    groups:
-       all-dependencies:
-          patterns:
-            - "*"
-  # /src/OrchardCore.Themes
-  - package-ecosystem: "nuget"
-    directory: "/src/OrchardCore.Themes"
-    schedule:
-      interval: "weekly"
-    groups:
-       all-dependencies:
-          patterns:
-            - "*"
-  # All other folders under src/.
-  - package-ecosystem: "nuget"
-    directories: 
-      - "/src/OrchardCore.Build"
-      - "/src/OrchardCore.Cms.Web"
-      - "/src/OrchardCore.Mvc.Web"
-      - "/src/Templates**"
-    schedule:
-      interval: "weekly"
-    groups:
-       all-dependencies:
-          patterns:
-            - "*"
-  # /test
-  - package-ecosystem: "nuget"
-    directory: "/test"
+    directory: "/Directory.Packages.props"
     schedule:
       interval: "weekly"
     groups:
