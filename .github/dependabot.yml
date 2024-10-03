@@ -13,3 +13,6 @@ updates:
        all-dependencies:
           patterns:
             - "*"
+    ignore:
+      # We'll update GraphQL for v3 because it's breaking, see https://github.com/OrchardCMS/OrchardCore/pull/16736.
+      - dependency-name: "GraphQL*"
